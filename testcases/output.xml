@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210209 21:28:56.892" rpa="false">
+<suite id="s1" name="Tc1-Get-Req" source="C:\Users\deech\PycharmProjects\pythonProject\testcases\tc1-get-req.robot">
+<test id="s1-t1" name="get weather info">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mymission</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20210209 21:28:57.055" level="INFO">Creating Session using : alias=mymission, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210209 21:28:57.055" endtime="20210209 21:28:57.055"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<arguments>
+<arg>mymission</arg>
+<arg>/todos/${city}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210209 21:28:57.056" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20210209 21:28:57.206" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/todos/1 
+ path_url=/todos/1 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210209 21:28:57.206" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/todos/1 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 10 Feb 2021 05:28:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': '__cfduid=d6f455737fc70e9a25044d6061e195e741612934936; expires=Fri, 12-Mar-21 05:28:56 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1609470399', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"53-hfEnumeNh6YirfjyjaujcOPPT+s"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '5246', 'cf-request-id': '082c03106300001fa74021a000000001', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"group":"cf-nel","endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report?s=6%2Fae8VfmYlg57Yw3ScFdPDTAuXNAiFsJpH74jaruKZavjaJqeQnaOEVIrUdQXcBYhecoyhX4DIQa7YPLrQ88CD3VWip0zEn4WNXYJStxkpaOu7hcvHM7UiV%2Bt9gwQK9Ih1ykkP3Lqydf"}],"max_age":604800}', 'NEL': '{"max_age":604800,"report_to":"cf-nel"}', 'Server': 'cloudflare', 'CF-RAY': '61f36dfa3caf1fa7-SJC', 'Content-Encoding': 'gzip'} 
+ body={
+  "userId": 1,
+  "id": 1,
+  "title": "delectus aut autem",
+  "completed": false
+} 
+ </msg>
+<msg timestamp="20210209 21:28:57.207" level="INFO">c:\users\deech\pycharmprojects\pythonproject\venv\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210209 21:28:57.207" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210209 21:28:57.056" endtime="20210209 21:28:57.207"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210209 21:28:57.207" endtime="20210209 21:28:57.209"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20210209 21:28:57.209" endtime="20210209 21:28:57.210"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.headers}</arg>
+</arguments>
+<status status="PASS" starttime="20210209 21:28:57.210" endtime="20210209 21:28:57.211"></status>
+</kw>
+<status status="PASS" starttime="20210209 21:28:57.054" endtime="20210209 21:28:57.212" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210209 21:28:56.894" endtime="20210209 21:28:57.214"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Tc1-Get-Req">Tc1-Get-Req</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210209 21:28:57.056" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
